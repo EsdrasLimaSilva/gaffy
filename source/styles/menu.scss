@@ -1,0 +1,161 @@
+$color1: #032973;
+$color2: #082040;
+$color3: #0d4373;
+$color4: #1462a6;
+$color5: #1e82d9;
+$color-transp1: rgba(0, 0, 0, 0.658);
+$color-transp2: rgba(0, 0, 0, 0.541);
+
+$text-font: arial, helvetica, sans-serif;
+$text-color: whitesmoke;
+
+@mixin flex($fd, $jc, $ai) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+}
+@mixin custom-ScrollBar {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color2;
+    border-radius: 10px;
+  }
+}
+a {
+  color: $text-color;
+  text-decoration: none;
+}
+#menu-btn {
+  font-size: 2rem;
+  left: 10px;
+  position: absolute;
+  top: 100%;
+  z-index: 2;
+}
+#menu {
+  background-color: $color2;
+  font-family: $text-font;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 10px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0px;
+  transition: all 0.3s;
+  width: 230px;
+  z-index: 5;
+  ul {
+    list-style-type: none;
+    div {
+      margin: 20px auto;
+      h2 {
+        color: $text-color;
+        font-size: 1rem;
+        padding: 5px;
+        &:hover {
+          cursor: pointer;
+        }
+        span {
+          display: inline-block;
+          transform: rotate(180deg);
+          transition: transform 0.3s;
+        }
+        .span-rotated {
+          transition: transform 0.3s;
+          transform: rotate(0deg);
+        }
+      }
+      div {
+        @include custom-ScrollBar();
+        width: 150px;
+        max-height: 1000px;
+        overflow: hidden;
+        transition: max-height 0.3s;
+        li {
+          background-color: $color1;
+          color: $text-color;
+          font-weight: bolder;
+          margin: 5px auto;
+          padding: 10px;
+          width: 100%;
+          &:hover {
+            background-color: $text-color;
+            color: $color2;
+            cursor: pointer;
+          }
+        }
+      }
+      .hidden-options {
+        max-height: 0px;
+        padding: 0;
+        transition: max-height 0.3s;
+      }
+    }
+  }
+  #close-menu-btn {
+    background-color: transparent;
+    border: none;
+    color: $text-color;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    margin-left: 90%;
+  }
+}
+
+.hidden-menu {
+  transform: translateX(-100%);
+}
+
+#div-close-menu {
+  display: none;
+  backdrop-filter: blur(5px);
+  background: linear-gradient(0deg, $color-transp1, $color-transp2);
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+@media (min-width: 1000px) {
+  #menu-btn {
+    display: none;
+  }
+  #menu {
+    border-bottom-left-radius: 10px;
+    height: 80px;
+    margin: 0 auto;
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    width: 80%;
+    ul {
+      @include flex(row, center, center);
+      div {
+        div {
+          max-height: 500px;
+          overflow: auto;
+          position: absolute;
+          li {
+            border: 2px solid $color2;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .hidden-menu {
+    transform: translateX(0);
+  }
+  #close-menu-btn {
+    display: none;
+  }
+}

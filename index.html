@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Esdras Silva" />
+    <link rel="stylesheet" href="./source/styles/main.scss" />
+    <script defer type="module" src="./source/scripts/controller.js"></script>
+    <title>GAFFY</title>
+  </head>
+  <body>
+    <div id="div-close-menu"></div>
+    <span id="load"></span>
+    <main>
+      <header>
+        <span id="menu-btn">&#x2630;</span>
+        <h1>GAFFY</h1>
+        <a href="http://freetogame.com/" target="_blank">
+          <img
+            src="https://www.freetogame.com/assets/images/freetogame-logo.png"
+            alt="Logo FreeToGame"
+          />
+        </a>
+        <nav id="menu" class="hidden-menu">
+          <button id="close-menu-btn">X</button>
+          <ul>
+            <div id="genre" class="options">
+              <h2>Genre <span class="span-rotaded">&#x25B4;</span></h2>
+              <div class="hidden-options">
+                <li data-tag="mmo">MMO</li>
+                <li data-tag="mmorpg">MMORPG</li>
+                <li data-tag="shooter">Shooter</li>
+                <li data-tag="strategy">Strategy</li>
+                <li data-tag="moba">Moba</li>
+                <li data-tag="battle-royale">Battle Royale</li>
+                <li data-tag="card">Card</li>
+                <li data-tag="racing">Racing</li>
+                <li data-tag="sports">Sports</li>
+                <li data-tag="social">Social</li>
+                <li data-tag="fighting">Fighting</li>
+              </div>
+            </div>
+            <div class="options">
+              <h2>Graphics <span class="span-rotaded">&#x25B4;</span></h2>
+              <div class="hidden-options">
+                <li data-tag="2d">2D</li>
+                <li data-tag="3d">3D</li>
+              </div>
+            </div>
+            <div class="options">
+              <h2>Combat <span class="span-rotaded">&#x25B4;</span></h2>
+              <div class="hidden-options">
+                <li data-tag="pvp">PVP</li>
+                <li data-tag="pve">PVE</li>
+              </div>
+            </div>
+            <div class="options">
+              <h2>Setting <span class="span-rotaded">&#x25B4;</span></h2>
+              <div class="hidden-options">
+                <li data-tag="anime">Anime</li>
+                <li data-tag="fantasy">Fantasy</li>
+                <li data-tag="sci-fi">SCI-FI</li>
+                <li data-tag="military">Military</li>
+                <li data-tag="horror">Horror</li>
+              </div>
+            </div>
+            <div class="options">
+              <h2>Tag <span class="span-rotaded">&#x25B4;</span></h2>
+              <div class="hidden-options">
+                <li data-tag="mmofps">MMOFPS</li>
+                <li data-tag="mmotps">MMOTPS</li>
+                <li data-tag="mmorts">MMORTS</li>
+                <li data-tag="open-world">Open World</li>
+                <li data-tag="sandbox">Sandbox</li>
+                <li data-tag="survival">Survival</li>
+                <li data-tag="action-rpg">Action-rpg</li>
+                <li data-tag="pixel">Pixel</li>
+                <li data-tag="voxel">Voxel</li>
+                <li data-tag="zombie">Zombie</li>
+                <li data-tag="first-person">First-Person</li>
+                <li data-tag="top-down">Top-Down</li>
+                <li data-tag="tank">Tank</li>
+                <li data-tag="space">Space</li>
+                <li data-tag="sailing">Sailing</li>
+                <li data-tag="side-scroller">Side Scroller</li>
+                <li data-tag="superhero">Superhero</li>
+                <li data-tag="permadeath">Permadeath</li>
+                <li data-tag="action">Action</li>
+                <li data-tag="martial-arts">Martial Arts</li>
+                <li data-tag="flight">Flight</li>
+                <li data-tag="low-spec">Low-Spec</li>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </header>
+      <button id="fav-btn-sec">Favorites</button>
+      <section class="favs-sec fav-hidden">
+        <h2>Empty :(</h2>
+      </section>
+      <section id="games-list">
+        <h2>Find amazing games to play for free!</h2>
+      </section>
+      <section id="details"></section>
+      <div id="pagination">
+        <button style="display: none" id="prev-btn">&lt; previews</button>
+        <button style="display: none" id="next-btn">next &gt;</button>
+      </div>
+    </main>
+    <footer>Esdras Silva</footer>
+  </body>
+</html>
