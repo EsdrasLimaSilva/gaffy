@@ -71,10 +71,10 @@ a {
       }
       div {
         @include custom-ScrollBar();
-        width: 150px;
         max-height: 1000px;
         overflow: hidden;
         transition: max-height 0.3s;
+        width: 150px;
         li {
           background-color: $color1;
           color: $text-color;
@@ -111,9 +111,9 @@ a {
 }
 
 #div-close-menu {
-  display: none;
   backdrop-filter: blur(5px);
   background: linear-gradient(0deg, $color-transp1, $color-transp2);
+  display: none;
   height: 100vh;
   left: 0;
   position: absolute;
@@ -134,9 +134,9 @@ a {
     margin: 0 auto;
     overflow: visible;
     position: absolute;
+    right: 10%;
     top: 0;
-    right: 0%;
-    width: 80%;
+    width: 70%;
     ul {
       @include flex(row, center, center);
       div {

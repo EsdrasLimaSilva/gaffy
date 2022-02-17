@@ -41,15 +41,15 @@ $text-color: whitesmoke;
   opacity: 0;
   overflow: auto;
   position: fixed;
-  top: 0;
   text-transform: uppercase;
+  top: 0;
   transition: all 0.2s;
   width: 100%;
   z-index: 5;
 
   section {
-    max-width: 1300px;
     margin: 0 auto;
+    max-width: 1300px;
   }
 
   #close-details-btn {
@@ -86,9 +86,9 @@ $text-color: whitesmoke;
       border-collapse: collapse;
       border: 2px solid $text-color;
       margin: 10px;
-      width: 80%;
-      min-width: 250px;
       max-width: 500px;
+      min-width: 250px;
+      width: 80%;
 
       td {
         border: 2px solid $text-color;
@@ -99,13 +99,13 @@ $text-color: whitesmoke;
   #description {
     height: auto;
     p {
-      width: 90%;
       font-family: $text-font;
-      font-weight: bold;
       font-size: 1.2rem;
-      margin: 20px auto;
+      font-weight: bold;
       line-height: 30px;
+      margin: 20px auto;
       text-align: justify;
+      width: 90%;
     }
   }
 }

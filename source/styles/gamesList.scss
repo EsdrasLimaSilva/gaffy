@@ -12,15 +12,15 @@ $text-font: arial, helvetica, sans-serif;
 $text-color: whitesmoke;
 
 @mixin flex($fd, $jc, $ai) {
-  display: flex;
-  justify-content: $jc;
   align-items: $ai;
+  display: flex;
   flex-direction: $fd;
+  justify-content: $jc;
 }
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 #games-list {
@@ -52,16 +52,16 @@ $text-color: whitesmoke;
       border-bottom-left-radius: 10px;
       border-top-right-radius: 10px;
       display: block;
-      width: 100%;
       height: 100%;
+      width: 100%;
     }
     span {
-      position: absolute;
       background-color: $color2;
+      border-bottom-right-radius: 10px;
       color: $text-color;
       font-weight: bolder;
       padding: 3px;
-      border-bottom-right-radius: 10px;
+      position: absolute;
       text-transform: uppercase;
       top: 0px;
     }
@@ -71,12 +71,12 @@ $text-color: whitesmoke;
       background-color: $color2;
       border-radius: 0;
       height: 40px;
-      width: 70px;
-      overflow: hidden;
       opacity: 0.8;
+      overflow: hidden;
       position: absolute;
       right: 0px;
       top: calc(100% - 42px);
+      width: 70px;
       #go {
         background-color: transparent;
         border-radius: 0;
@@ -84,14 +84,14 @@ $text-color: whitesmoke;
         position: static;
       }
       .fav-button {
-        position: static;
         background-color: transparent;
         height: 30px;
+        position: static;
         width: 30px;
         svg {
           fill: $text-color;
-          width: 25px;
           height: 25px;
+          width: 25px;
         }
       }
     }
@@ -121,7 +121,7 @@ $text-color: whitesmoke;
   }
   .game-hidden {
     opacity: 0;
-    transition: all 1s;
     transform: translateX(200px);
+    transition: all 1s;
   }
 }

@@ -3,17 +3,17 @@ $color2: #1e82d9;
 
 #load {
   animation: spinner 1s linear infinite;
-  border: 10px solid $color1;
-  border-top: 10px solid $color2;
   border-radius: 50%;
+  border-top: 10px solid $color2;
+  border: 10px solid $color1;
   display: none;
   height: 100px;
   left: calc(50% - 50px);
+  outline: 2px solid rgba(0, 0, 0, 0.493);
   position: fixed;
   top: calc(50% - 50px);
   width: 100px;
   z-index: 10;
-  outline: 2px solid rgba(0, 0, 0, 0.493);
 }
 
 @keyframes spinner {
