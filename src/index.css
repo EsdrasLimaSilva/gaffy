@@ -21,8 +21,22 @@ body {
   background-color: #0e0514;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Gugi", cursive;
+}
+
 #header-home {
   background-image: url("../public//background-header.jpg");
   background-size: contain;
   background-position: right center;
+}
+
+.option-hidden {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }

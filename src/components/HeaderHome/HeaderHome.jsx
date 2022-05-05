@@ -18,7 +18,10 @@ function HeaderHome() {
         alt="character"
         className="absolute bottom-0 right-0 h-40 z-0"
       />
-      <form action="#" className="absolute z-10 bottom-2 left-6 flex flex-row">
+      <h1 className="text-gray-50 absolute  top-10 left-5 text-3xl uppercase">
+        Gaffy
+      </h1>
+      <form action="#" className="absolute z-10 bottom-2 left-10 flex flex-row">
         <input
           type="search"
           name="game-search-input"
