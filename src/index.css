@@ -53,3 +53,36 @@ h4 {
   background-color: rgba(0, 0, 0, 0.349);
   backdrop-filter: blur(2px);
 }
+
+#spinner {
+  animation: spin 1s infinite;
+}
+
+div#cover-loading {
+  background: rgba(0, 0, 0, 0.486);
+  backdrop-filter: blur(5px);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(20deg);
+  }
+  5% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-20deg);
+  }
+  15% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(20deg);
+  }
+  25% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}

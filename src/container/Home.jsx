@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 //components
 import HeaderHome from "../components/HeaderHome/HeaderHome";
 import NavMenu from "../components/NavMenu/NavMenu";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectLoading } from "../redux/gamesSlice";
+import Spinner from "../components/spinner/Spinner";
+import GamesList from "../components/GamesList/GamesList";
 
 function Home() {
-  useEffect(() => {}, []);
+  const loading = useSelector(selectLoading);
 
   function showMenu() {
     document.querySelector("#cover-close-menu")?.classList.remove("hidden");
@@ -30,6 +34,8 @@ function Home() {
     <>
       <HeaderHome showMenu={showMenu} />
       <NavMenu closeMenu={closeMenu} showMenu={showMenu} />
+      {loading ? <Spinner /> : ""}
+      <GamesList />
     </>
   );
 }

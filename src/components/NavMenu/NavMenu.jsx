@@ -27,12 +27,11 @@ import {
   faGhost,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fetchGames } from "../../api/fetchGames";
-import { formatQuery } from "../../helpers/formatQuery";
+
+import ItemTag from "../ItemTag/ItemTag";
 
 const NavMenu = function ({ closeMenu, showMenu }) {
   const [currentTag, setCurrentTag] = useState(null);
-
   const tags = {
     genre: [
       { title: "MMO", icon: faPeopleGroup, id: 1 },
@@ -69,232 +68,48 @@ const NavMenu = function ({ closeMenu, showMenu }) {
 
   if (currentTag && currentTag === "genre") {
     return (
-      <>
-        <div
-          id="cover-close-menu"
-          className="w-screen h-screen absolute top-0 left-0 z-10 hidden"
-          onClick={() => {
-            closeMenu();
-            setCurrentTag("pamonha");
-          }}
-        />
-        <div className="option-tag fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white z-20 max-w-2xl w-full max-h-96  overflow-auto">
-          <ul className=" flex flex-row flex-wrap justify-center items-center">
-            {tags.genre.map((genre) => (
-              <li
-                key={genre.id}
-                className="option-tag-type w-24 h-24 m-2 flex flex-col justify-center items-center rounded-lg hover:cursor-pointer bg-red-700 hover:bg-gray-50 hover:text-red-700"
-                onClick={(e) =>
-                  fetchGames(
-                    formatQuery(
-                      e.target.closest("li").firstElementChild.textContent
-                    )
-                  )
-                }
-              >
-                <h2 className="text-center text-sm uppercase font-sans font-bold">
-                  {genre.title}
-                </h2>
-                <FontAwesomeIcon icon={genre.icon} className="text-3xl mt-2" />
-              </li>
-            ))}
-          </ul>
-          <button
-            className="text-gray-50 absolute top-0 right-5 text-3xl font-bold"
-            onClick={() => {
-              closeMenu();
-              setCurrentTag(null);
-            }}
-          >
-            x
-          </button>
-          <button
-            className="text-gray-50 absolute top-0 left-5 text-2xl font-bold"
-            onClick={() => {
-              closeMenu();
-              setCurrentTag(null);
-              setTimeout(() => {
-                showMenu();
-              }, 90);
-            }}
-          >
-            <FontAwesomeIcon icon={faAnglesLeft} />
-          </button>
-        </div>
-      </>
+      <ItemTag
+        tagArr={tags.genre}
+        color="red"
+        setCurrentTag={setCurrentTag}
+        closeMenu={closeMenu}
+        showMenu={showMenu}
+      />
     );
   }
-
   if (currentTag && currentTag === "setting") {
     return (
-      <>
-        <div
-          id="cover-close-menu"
-          className="w-screen h-screen absolute top-0 left-0 z-10 hidden"
-          onClick={() => {
-            closeMenu();
-            setCurrentTag("pamonha");
-          }}
-        />
-        <div className="option-tag fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white z-20 max-w-2xl  w-full max-h-96  overflow-auto">
-          <ul className="w-full flex flex-row flex-wrap justify-center items-center">
-            {tags.setting.map((set) => (
-              <li
-                key={set.id}
-                className="option-tag-type w-24 h-24 m-2 flex flex-col justify-center items-center rounded-lg hover:cursor-pointer bg-blue-700 hover:bg-gray-50 hover:text-blue-700"
-                onClick={(e) =>
-                  fetchGames(
-                    formatQuery(
-                      e.target.closest("li").firstElementChild.textContent
-                    )
-                  )
-                }
-              >
-                <h2 className="text-center text-sm uppercase font-sans font-bold">
-                  {set.title}
-                </h2>
-                <FontAwesomeIcon icon={set.icon} className="text-3xl mt-2" />
-              </li>
-            ))}
-          </ul>
-
-          <button
-            className="text-gray-50 absolute top-0 right-5 text-3xl font-bold"
-            onClick={() => {
-              closeMenu();
-              setCurrentTag(null);
-            }}
-          >
-            x
-          </button>
-          <button
-            className="text-gray-50 absolute top-0 left-5 text-2xl font-bold"
-            onClick={() => {
-              closeMenu();
-              setCurrentTag(null);
-              setTimeout(() => {
-                showMenu();
-              }, 90);
-            }}
-          >
-            <FontAwesomeIcon icon={faAnglesLeft} />
-          </button>
-        </div>
-      </>
+      <ItemTag
+        tagArr={tags.setting}
+        color="blue"
+        setCurrentTag={setCurrentTag}
+        closeMenu={closeMenu}
+        showMenu={showMenu}
+      />
     );
   }
 
   if (currentTag && currentTag === "graphics") {
     return (
-      <>
-        <div
-          id="cover-close-menu"
-          className="w-screen h-screen absolute top-0 left-0 z-10 hidden"
-          onClick={() => {
-            closeMenu();
-            setCurrentTag(null);
-          }}
-        />
-        <div className="option-tag fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white z-20 max-w-2xl  w-full max-h-80 overflow-auto">
-          <ul className="flex flex-row flex-wrap justify-center items-center ">
-            {tags.graphics.map((grap) => (
-              <li
-                key={grap.id}
-                className="option-tag-type w-24 h-24 m-2 flex flex-col justify-center items-center rounded-lg hover:cursor-pointer bg-orange-700 hover:bg-gray-50 hover:text-orange-700"
-                onClick={(e) =>
-                  fetchGames(
-                    formatQuery(
-                      e.target.closest("li").firstElementChild.textContent
-                    )
-                  )
-                }
-              >
-                <h2 className="text-center text-sm uppercase font-sans font-bold">
-                  {grap.title}
-                </h2>
-                <FontAwesomeIcon icon={grap.icon} className="text-3xl mt-2" />
-              </li>
-            ))}
-          </ul>
-          <button
-            className="text-gray-50 absolute top-0 right-5 text-3xl font-bold"
-            onClick={() => {
-              closeMenu();
-              setCurrentTag(null);
-            }}
-          >
-            x
-          </button>
-          <button
-            className="text-gray-50 absolute top-0 left-5 text-2xl font-bold"
-            onClick={() => {
-              closeMenu();
-              setCurrentTag(null);
-              setTimeout(() => {
-                showMenu();
-              }, 90);
-            }}
-          >
-            <FontAwesomeIcon icon={faAnglesLeft} />
-          </button>
-        </div>
-      </>
+      <ItemTag
+        tagArr={tags.graphics}
+        color="orange"
+        setCurrentTag={setCurrentTag}
+        closeMenu={closeMenu}
+        showMenu={showMenu}
+      />
     );
   }
 
   if (currentTag && currentTag === "combat") {
     return (
-      <>
-        <div
-          id="cover-close-menu"
-          className="w-screen h-screen absolute top-0 left-0 z-10 hidden"
-          onClick={() => {
-            closeMenu();
-            setCurrentTag(null);
-          }}
-        />
-        <ul className="option-tag fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white z-20 max-w-2xl flex flex-row flex-wrap w-full max-h-80 justify-center items-center overflow-auto">
-          {tags.combat.map((comb) => (
-            <li
-              key={comb.id}
-              className="option-tag-type w-24 h-24 m-2 flex flex-col justify-center items-center rounded-lg hover:cursor-pointer bg-green-700 hover:bg-gray-50 hover:text-green-700"
-              onClick={(e) =>
-                fetchGames(
-                  formatQuery(
-                    e.target.closest("li").firstElementChild.textContent
-                  )
-                )
-              }
-            >
-              <h2 className="text-center text-sm uppercase font-sans font-bold">
-                {comb.title}
-              </h2>
-              <FontAwesomeIcon icon={comb.icon} className="text-3xl mt-2" />
-            </li>
-          ))}
-          <button
-            className="text-gray-50 absolute top-0 right-5 text-3xl font-bold"
-            onClick={() => {
-              closeMenu();
-              setCurrentTag(null);
-            }}
-          >
-            x
-          </button>
-          <button
-            className="text-gray-50 absolute top-0 left-5 text-2xl font-bold"
-            onClick={() => {
-              closeMenu();
-              setCurrentTag(null);
-              setTimeout(() => {
-                showMenu();
-              }, 90);
-            }}
-          >
-            <FontAwesomeIcon icon={faAnglesLeft} />
-          </button>
-        </ul>
-      </>
+      <ItemTag
+        tagArr={tags.combat}
+        color="green"
+        setCurrentTag={setCurrentTag}
+        closeMenu={closeMenu}
+        showMenu={showMenu}
+      />
     );
   }
   return (
