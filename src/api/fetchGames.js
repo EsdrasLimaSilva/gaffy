@@ -1,21 +1,43 @@
-import axios from "axios";
+const timeout = (time) => {
+  let controler = new AbortController();
+  setTimeout(() => controler.abort(), time * 1000);
+  return controler;
+};
 
-const axiosConfig = {
-  baseUrl: "https://free-to-play-games-database.p.rapidapi.com/api",
+const config = {
   method: "get",
+  mode: "cors",
   headers: {
-    "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-    "x-rapidapi-key": "0a15235f9cmsh4b31fb10bfbe4aep1fd69ejsn32eaf2323ad2",
+    "x-rapidapi-host": process.env.X_HOST,
+    "x-rapidapi-key": process.env.X_KEY,
   },
-  timout: 3000,
+  signal: timeout(8).signal,
 };
 
-const fetchGames = async function (tag) {
-  const response = await axios.get(`/games?category=${tag}`);
-  return response.json();
+export const fetchGames = async function (tag) {
+  console.log("oi");
+  try {
+    const response = await fetch(
+      `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${tag}`,
+      config
+    );
+
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error.messahe);
+  }
 };
 
-const fetchSingleGame = async function (gameId) {
-  const response = await axios.get("/game?id=${id}");
-  return response.json();
+export const fetchSingleGame = async function (gameId) {
+  try {
+    const response = await fetch(
+      "https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}",
+      config
+    );
+    return response.json();
+  } catch (error) {
+    console.log(error.message);
+  }
 };

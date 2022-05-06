@@ -2,6 +2,19 @@
 @import "tailwindcss/utilities";
 @import "tailwindcss/components";
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(14, 14, 27);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,11 +27,13 @@ a {
 }
 ul {
   list-style-type: none;
+  font-family: "Gugi", cursive;
 }
 
 body {
   overflow: hidden;
   background-color: #0e0514;
+  user-select: none;
 }
 
 h1,
@@ -34,9 +49,7 @@ h4 {
   background-position: right center;
 }
 
-.option-hidden {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
+#cover-close-menu {
+  background-color: rgba(0, 0, 0, 0.349);
+  backdrop-filter: blur(2px);
 }
