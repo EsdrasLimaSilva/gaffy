@@ -31,7 +31,7 @@ ul {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #0e0514;
   user-select: none;
 }
