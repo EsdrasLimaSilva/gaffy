@@ -12,11 +12,20 @@ function GamesList() {
 
   if (games.length !== 0) {
     return (
-      <section>
-        {gamesListPage.map((game) => (
-          <SingleGame key={game.id} name={game.title} />
-        ))}
-        <div id="pagination" className="text-gray-50">
+      <section className="mx-auto max-w-5xl flex flex-col items-center justify-center py-10 mt-16">
+        <div className="w-full flex flex-row flex-wrap justify-center items-center">
+          {gamesListPage.map((game) => (
+            <SingleGame
+              key={game.id}
+              gameId={game.id}
+              name={game.title}
+              src={game.thumbnail}
+              genre={game.genre}
+              gameUrl={game.game_url}
+            />
+          ))}
+        </div>
+        <div id="pagination" className="text-gray-50 mt-10">
           {currentPage > 1 ? (
             <button
               className="bg-blue-700 px-2 rounded-l-lg font-mono font-bold hover:bg-gray-50 hover:text-blue-700 hover:cursor-pointer mx-1 transition-all text-sm"
