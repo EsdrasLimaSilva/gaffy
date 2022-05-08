@@ -4,7 +4,7 @@ import gamesReducer from "./gamesSlice";
 
 export const store = configureStore({
   reducer: {
-    favorties: favsReducer,
+    favs: favsReducer,
     games: gamesReducer,
   },
 });

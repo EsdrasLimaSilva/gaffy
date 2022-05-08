@@ -2,12 +2,36 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBullseye, faHeart } from "@fortawesome/free-solid-svg-icons";
 import setGameTitle from "../../helpers/setGameTitle";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectGamesFav,
+  gameAddedFav,
+  gameRemovedFav,
+} from "../../redux/favsSlice";
 
 function SingleGame({ name, src, genre, gameUrl, gameId }) {
+  const dispatch = useDispatch();
+  const gamesFav = useSelector(selectGamesFav);
+  console.log(gamesFav);
+
+  function handleClick(gameIdFavs, gameTitleFavs, gameImgFavs) {
+    const gameIsOnFavs = gamesFav.find((game) => game.id === gameIdFavs);
+
+    if (gameIsOnFavs) {
+      dispatch(gameRemovedFav(Number(gameIdFavs)));
+    }
+
+    if (!gameIsOnFavs) {
+      dispatch(
+        gameAddedFav({ title: gameTitleFavs, img: gameImgFavs, id: gameIdFavs })
+      );
+    }
+  }
+
   return (
     <div
       id={gameId}
-      className="text-gray-50 m-2 bg-gray-900 pb-4 shadow-lg relative hover:cursor-pointer hover:opacity-70"
+      className="single-game transition-all text-gray-50 m-2 bg-gray-900 pb-4 shadow-lg relative hover:cursor-pointer hover:bg-gray-100 hover:text-gray-900"
     >
       <img
         src={src}
@@ -24,9 +48,21 @@ function SingleGame({ name, src, genre, gameUrl, gameId }) {
           <a href={gameUrl} target="_blank" rel="noreferrer" className="mr-2">
             <FontAwesomeIcon icon={faBullseye} />
           </a>
-          <button>
-            <FontAwesomeIcon icon={faHeart} />
-          </button>
+          {gamesFav.find((game) => game.id === Number(gameId)) ? (
+            <button id="button-add-fav" className="text-red-600">
+              <FontAwesomeIcon
+                icon={faHeart}
+                onClick={() => handleClick(gameId, name, src)}
+              />
+            </button>
+          ) : (
+            <button id="button-add-fav">
+              <FontAwesomeIcon
+                icon={faHeart}
+                onClick={() => handleClick(gameId, name, src)}
+              />
+            </button>
+          )}
         </div>
       </div>
     </div>

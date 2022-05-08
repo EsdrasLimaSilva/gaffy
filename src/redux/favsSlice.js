@@ -2,16 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const favsSlice = createSlice({
   name: "favs",
-  initialState: [],
+  initialState: {
+    gamesFavs: [],
+  },
   reducers: {
-    gameAdded: (state, { payload }) => {
-      state.push(payload);
+    gameAddedFav: (state, { payload }) => {
+      state.gamesFavs.push(payload);
     },
-    gameRemoved: (state, { payload }) => {
-      state.filter((game) => game.id !== payload);
+    gameRemovedFav: (state, { payload }) => {
+      state.gamesFavs = state.gamesFavs.filter((game) => game.id !== payload);
     },
   },
 });
+export const selectGamesFav = (state) => state.favs.gamesFavs;
 
-export const { gameAdded, gameRemoved } = favsSlice.actions;
+export const { gameAddedFav, gameRemovedFav } = favsSlice.actions;
 export default favsSlice.reducer;

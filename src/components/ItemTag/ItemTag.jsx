@@ -4,10 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import { fetchGames } from "../../api/fetchGames";
 import { formatQuery } from "../../helpers/formatQuery";
-import { gamesAdded, loadingGames } from "../../redux/gamesSlice";
+import {
+  gamesAdded,
+  loadingGames,
+  setCurrentOption,
+  setCurrentTag,
+} from "../../redux/gamesSlice";
 import { useDispatch } from "react-redux";
 
-function ItemTag({ tagArr, color, setCurrentTag, closeMenu, showMenu }) {
+function ItemTag({ tagArr, color, closeMenu, showMenu }) {
   const dispatch = useDispatch();
 
   return (
@@ -31,7 +36,12 @@ function ItemTag({ tagArr, color, setCurrentTag, closeMenu, showMenu }) {
               className={`option-tag-type w-24 h-24 m-2 flex flex-col justify-center items-center rounded-lg hover:cursor-pointer bg-${color}-700 hover:bg-gray-50 hover:text-${color}-700`}
               onClick={async (e) => {
                 closeMenu();
-                setCurrentTag(null);
+                dispatch(setCurrentTag(null));
+                dispatch(
+                  setCurrentOption(
+                    String(e.target.closest("li").firstElementChild.textContent)
+                  )
+                );
                 dispatch(loadingGames());
                 const games = await fetchGames(
                   formatQuery(

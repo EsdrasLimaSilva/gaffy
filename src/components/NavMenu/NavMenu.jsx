@@ -27,11 +27,13 @@ import {
   faGhost,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { useSelector, useDispatch } from "react-redux";
+import { selectCurrentTag, setCurrentTag } from "../../redux/gamesSlice";
 import ItemTag from "../ItemTag/ItemTag";
 
 const NavMenu = function ({ closeMenu, showMenu }) {
-  const [currentTag, setCurrentTag] = useState(null);
+  const currentTag = useSelector(selectCurrentTag);
+  const dispatch = useDispatch();
   const tags = {
     genre: [
       { title: "MMO", icon: faPeopleGroup, id: 1 },
@@ -71,7 +73,6 @@ const NavMenu = function ({ closeMenu, showMenu }) {
       <ItemTag
         tagArr={tags.genre}
         color="red"
-        setCurrentTag={setCurrentTag}
         closeMenu={closeMenu}
         showMenu={showMenu}
       />
@@ -82,7 +83,6 @@ const NavMenu = function ({ closeMenu, showMenu }) {
       <ItemTag
         tagArr={tags.setting}
         color="blue"
-        setCurrentTag={setCurrentTag}
         closeMenu={closeMenu}
         showMenu={showMenu}
       />
@@ -94,7 +94,6 @@ const NavMenu = function ({ closeMenu, showMenu }) {
       <ItemTag
         tagArr={tags.graphics}
         color="orange"
-        setCurrentTag={setCurrentTag}
         closeMenu={closeMenu}
         showMenu={showMenu}
       />
@@ -106,7 +105,6 @@ const NavMenu = function ({ closeMenu, showMenu }) {
       <ItemTag
         tagArr={tags.combat}
         color="green"
-        setCurrentTag={setCurrentTag}
         closeMenu={closeMenu}
         showMenu={showMenu}
       />
@@ -131,7 +129,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             <li
               className="option-menu-tag scale-0 my-2 bg-red-700 text-gray-50 p-2 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-red-700 hover:cursor-pointer transition-all 
             left-1/2 -translate-x-1/2"
-              onClick={() => setCurrentTag("genre")}
+              onClick={() => dispatch(setCurrentTag("genre"))}
             >
               <span className="-rotate-45">
                 <FontAwesomeIcon icon={faGenderless} className="mr-1" />
@@ -142,7 +140,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             <li
               className="option-menu-tag scale-0 my-2 bg-blue-700 text-gray-50 p-1 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-blue-700 hover:cursor-pointer transition-all 
             top-20 left-0"
-              onClick={() => setCurrentTag("setting")}
+              onClick={() => dispatch(setCurrentTag("setting"))}
             >
               <span className="-rotate-45">
                 <FontAwesomeIcon icon={faGear} className="mr-1" />
@@ -153,7 +151,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             <li
               className="option-menu-tag scale-0 my-2 bg-green-700 text-gray-50 p-2 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-green-700 hover:cursor-pointer transition-all 
             left-1/2 -translate-x-1/2 top-40"
-              onClick={() => setCurrentTag("combat")}
+              onClick={() => dispatch(setCurrentTag("combat"))}
             >
               <span className="-rotate-45">
                 <FontAwesomeIcon icon={faHandBackFist} className="mr-1" />
@@ -164,7 +162,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             <li
               className="option-menu-tag scale-0 my-2 bg-orange-700 text-gray-50 w-24 p-1 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-orange-700 hover:cursor-pointer transition-all 
             top-20 right-0"
-              onClick={() => setCurrentTag("graphics")}
+              onClick={() => dispatch(setCurrentTag("graphics"))}
             >
               <span className="-rotate-45">
                 <FontAwesomeIcon icon={faCubes} className="mr-1" />
