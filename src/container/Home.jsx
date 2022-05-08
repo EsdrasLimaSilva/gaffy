@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useEffect } from "react";
+import React from "react";
 
 //components
 import HeaderHome from "../components/HeaderHome/HeaderHome";
@@ -8,6 +7,7 @@ import { useSelector } from "react-redux";
 import { selectLoading } from "../redux/gamesSlice";
 import Spinner from "../components/spinner/Spinner";
 import GamesList from "../components/GamesList/GamesList";
+import Favorites from "../components/Favorites/Favorites";
 
 function Home() {
   const loading = useSelector(selectLoading);
@@ -35,6 +35,7 @@ function Home() {
       <HeaderHome showMenu={showMenu} />
       <NavMenu closeMenu={closeMenu} showMenu={showMenu} />
       {loading ? <Spinner /> : ""}
+      <Favorites />
       <GamesList />
     </>
   );

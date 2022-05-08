@@ -6,6 +6,7 @@ export const gamesSlice = createSlice({
     loading: false,
     currentTag: null,
     currentOption: null,
+    lastTag: localStorage.ltTag || null,
     gamesList: [],
   },
   reducers: {
@@ -22,6 +23,9 @@ export const gamesSlice = createSlice({
     setCurrentOption: (state, { payload }) => {
       state.currentOption = payload;
     },
+    setLastTag: (state, { payload }) => {
+      state.lastTag = payload;
+    },
   },
 });
 
@@ -29,7 +33,13 @@ export const selectGames = (state) => state.games.gamesList;
 export const selectLoading = (state) => state.games.loading;
 export const selectCurrentTag = (state) => state.games.currentTag;
 export const selectCurrentOption = (state) => state.games.currentOption;
+export const selectLastTag = (state) => state.games.lastTag;
 
-export const { gamesAdded, loadingGames, setCurrentTag, setCurrentOption } =
-  gamesSlice.actions;
+export const {
+  gamesAdded,
+  loadingGames,
+  setCurrentTag,
+  setCurrentOption,
+  setLastTag,
+} = gamesSlice.actions;
 export default gamesSlice.reducer;

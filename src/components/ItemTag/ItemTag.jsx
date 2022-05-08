@@ -9,6 +9,7 @@ import {
   loadingGames,
   setCurrentOption,
   setCurrentTag,
+  setLastTag,
 } from "../../redux/gamesSlice";
 import { useDispatch } from "react-redux";
 
@@ -22,12 +23,12 @@ function ItemTag({ tagArr, color, closeMenu, showMenu }) {
         className="w-screen h-screen absolute top-0 left-0 z-10"
         onClick={() => {
           closeMenu();
-          setCurrentTag(null);
+          dispatch(setCurrentTag(null));
         }}
       />
       <div
         id="menu"
-        className="option-tag fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white z-20 max-w-2xl w-full max-h-96  overflow-auto"
+        className="option-tag fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white z-20 max-w-2xl w-full max-h-96  overflow-y-auto px-5"
       >
         <ul className=" flex flex-row flex-wrap justify-center items-center">
           {tagArr.map((tag) => (
@@ -35,20 +36,16 @@ function ItemTag({ tagArr, color, closeMenu, showMenu }) {
               key={tag.id}
               className={`option-tag-type w-24 h-24 m-2 flex flex-col justify-center items-center rounded-lg hover:cursor-pointer bg-${color}-700 hover:bg-gray-50 hover:text-${color}-700`}
               onClick={async (e) => {
+                const query =
+                  e.target.closest("li").firstElementChild.textContent;
                 closeMenu();
                 dispatch(setCurrentTag(null));
-                dispatch(
-                  setCurrentOption(
-                    String(e.target.closest("li").firstElementChild.textContent)
-                  )
-                );
+                dispatch(setCurrentOption(String(query)));
                 dispatch(loadingGames());
-                const games = await fetchGames(
-                  formatQuery(
-                    e.target.closest("li").firstElementChild.textContent
-                  )
-                );
+                const games = await fetchGames(formatQuery(query));
                 dispatch(gamesAdded(games));
+                dispatch(setLastTag(query));
+                localStorage.setItem("ltTag", String(query));
               }}
             >
               <h2 className="text-center text-sm uppercase font-sans font-bold">
@@ -71,7 +68,7 @@ function ItemTag({ tagArr, color, closeMenu, showMenu }) {
           className="text-gray-50 absolute top-0 left-5 text-2xl font-bold"
           onClick={() => {
             closeMenu();
-            setCurrentTag(null);
+            dispatch(setCurrentTag(null));
             setTimeout(() => {
               showMenu();
             }, 90);

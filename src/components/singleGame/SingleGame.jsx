@@ -12,7 +12,6 @@ import {
 function SingleGame({ name, src, genre, gameUrl, gameId }) {
   const dispatch = useDispatch();
   const gamesFav = useSelector(selectGamesFav);
-  console.log(gamesFav);
 
   function handleClick(gameIdFavs, gameTitleFavs, gameImgFavs) {
     const gameIsOnFavs = gamesFav.find((game) => game.id === gameIdFavs);
