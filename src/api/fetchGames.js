@@ -24,10 +24,11 @@ export const fetchGames = async function (tag) {
 export const fetchSingleGame = async function (gameId) {
   try {
     const response = await fetch(
-      "https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}",
+      `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${gameId}`,
       config
     );
-    return response.json();
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error.message);
   }

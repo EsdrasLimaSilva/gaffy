@@ -1,9 +1,58 @@
 import React from "react";
+import { selectGamesFav, gameRemovedFav } from "../../redux/favsSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faHeartCrack } from "@fortawesome/free-solid-svg-icons";
+
+const FavGame = function ({ title, id, img }) {
+  const dispatch = useDispatch();
+
+  return (
+    <div
+      id={id}
+      className="flex flex-row items-center justify-between bg-gray-900 hover:bg-gray-50 hover:text-gray-900 transition-all rounded-md hover:cursor-pointer my-1 shadow-lg"
+    >
+      <img src={img} alt={`${title} thumbnail`} className="h-12" />
+
+      <h2 className="ml-2 text-sm text-center">{title}</h2>
+      <button onClick={() => dispatch(gameRemovedFav(id))}>
+        <FontAwesomeIcon icon={faTrash} className="mx-2" />
+      </button>
+    </div>
+  );
+};
 
 function Favorites() {
+  const favoritesGames = useSelector(selectGamesFav);
+
   return (
-    <section>
-      <h2>Hello</h2>
+    <section
+      id="favorites-section"
+      className="hidden bg-gray-700 text-gray-50 fixed top-0 left-10 w-80 h-80 rounded-lg px-5 py-2 overflow-y-auto z-40 shadow-2xl"
+    >
+      <h2 className="mb-5 border-b-2 pb-1">Games Favorites</h2>
+      <button
+        className="absolute top-1 right-2 font-bold text-xl"
+        onClick={() =>
+          document.querySelector("#favorites-section").classList.add("hidden")
+        }
+      >
+        X
+      </button>
+      {favoritesGames.length > 0 ? (
+        favoritesGames.map((game) => (
+          <FavGame
+            key={game.id}
+            title={game.title}
+            id={game.id}
+            img={game.img}
+          />
+        ))
+      ) : (
+        <h2>
+          empty <FontAwesomeIcon icon={faHeartCrack} />
+        </h2>
+      )}
     </section>
   );
 }

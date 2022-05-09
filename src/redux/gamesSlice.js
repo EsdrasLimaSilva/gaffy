@@ -24,6 +24,7 @@ export const gamesSlice = createSlice({
       state.currentOption = payload;
     },
     setLastTag: (state, { payload }) => {
+      localStorage.setItem("ltTag", String(payload));
       state.lastTag = payload;
     },
   },

@@ -3,18 +3,18 @@ import SingleGame from "../singleGame/SingleGame";
 import { useSelector, useDispatch } from "react-redux";
 import {
   selectGames,
-  selectCurrentOption,
   selectLastTag,
   gamesAdded,
   loadingGames,
 } from "../../redux/gamesSlice";
 import { fetchGames } from "../../api/fetchGames";
 import { formatQuery } from "../../helpers/formatQuery";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiceD20 } from "@fortawesome/free-solid-svg-icons";
 
 function GamesList() {
   const dispatch = useDispatch();
   const games = useSelector(selectGames);
-  const currentOption = useSelector(selectCurrentOption);
   const lastTag = useSelector(selectLastTag);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,8 +23,8 @@ function GamesList() {
 
   useEffect(() => {
     (async function () {
-      console.log("fetching");
-      if (lastTag) {
+      if (lastTag && games.length === 0) {
+        console.log(localStorage);
         dispatch(loadingGames());
         const games = await fetchGames(formatQuery(lastTag));
         dispatch(gamesAdded(games));
@@ -83,8 +83,8 @@ function GamesList() {
   }
 
   return (
-    <h2 className="text-gray-50 text-center">
-      Try to choose one category on the menu
+    <h2 className="text-gray-50 text-center mt-48">
+      Try choosing a category from the menu <FontAwesomeIcon icon={faDiceD20} />
     </h2>
   );
 }

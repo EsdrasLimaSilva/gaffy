@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBullseye, faHeart } from "@fortawesome/free-solid-svg-icons";
 import setGameTitle from "../../helpers/setGameTitle";
@@ -11,6 +12,7 @@ import {
 
 function SingleGame({ name, src, genre, gameUrl, gameId }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const gamesFav = useSelector(selectGamesFav);
 
   function handleClick(gameIdFavs, gameTitleFavs, gameImgFavs) {
@@ -31,6 +33,9 @@ function SingleGame({ name, src, genre, gameUrl, gameId }) {
     <div
       id={gameId}
       className="single-game transition-all text-gray-50 m-2 bg-gray-900 pb-4 shadow-lg relative hover:cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+      onClick={() => {
+        navigate(`/${gameId}`);
+      }}
     >
       <img
         src={src}

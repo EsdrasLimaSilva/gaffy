@@ -8,6 +8,7 @@ import { selectLoading } from "../redux/gamesSlice";
 import Spinner from "../components/spinner/Spinner";
 import GamesList from "../components/GamesList/GamesList";
 import Favorites from "../components/Favorites/Favorites";
+import Footer from "../components/footer/Footer";
 
 function Home() {
   const loading = useSelector(selectLoading);
@@ -37,6 +38,7 @@ function Home() {
       {loading ? <Spinner /> : ""}
       <Favorites />
       <GamesList />
+      <Footer />
     </>
   );
 }

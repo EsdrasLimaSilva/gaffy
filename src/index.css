@@ -37,7 +37,6 @@ ul {
 body {
   overflow-x: hidden;
   background-color: #0e0514;
-  user-select: none;
 }
 
 h1,
@@ -48,7 +47,7 @@ h4 {
 }
 
 #header-home {
-  background-image: url("../public//background-header.jpg");
+  background-image: url("./assets/background-header.jpg");
   background-size: contain;
   background-position: right center;
 }
@@ -60,6 +59,12 @@ h4 {
 
 #spinner {
   animation: spin 1s infinite;
+}
+
+#header-game-page {
+  background-image: url("./assets/bg-gamepage.jpg");
+  background-size: cover;
+  background-position: center center;
 }
 
 div#cover-loading {

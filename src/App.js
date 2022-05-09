@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 //pages
 import Home from "./container/Home";
+import GamePage from "./container/GamePage";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/*" element={<h2>Game</h2>} />
+          <Route path="/*" element={<GamePage />} />
         </Routes>
       </BrowserRouter>
     </Suspense>

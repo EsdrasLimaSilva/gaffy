@@ -45,7 +45,6 @@ function ItemTag({ tagArr, color, closeMenu, showMenu }) {
                 const games = await fetchGames(formatQuery(query));
                 dispatch(gamesAdded(games));
                 dispatch(setLastTag(query));
-                localStorage.setItem("ltTag", String(query));
               }}
             >
               <h2 className="text-center text-sm uppercase font-sans font-bold">
