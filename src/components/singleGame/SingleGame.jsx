@@ -15,6 +15,7 @@ function SingleGame({ name, src, genre, gameUrl, gameId }) {
   const navigate = useNavigate();
   const gamesFav = useSelector(selectGamesFav);
 
+  //check if the game clicked alraedy is on favorites
   function handleClick(gameIdFavs, gameTitleFavs, gameImgFavs) {
     const gameIsOnFavs = gamesFav.find((game) => game.id === gameIdFavs);
 
@@ -33,15 +34,15 @@ function SingleGame({ name, src, genre, gameUrl, gameId }) {
     <div
       id={gameId}
       className="single-game transition-all text-gray-50 m-2 bg-gray-900 pb-4 shadow-lg relative hover:cursor-pointer hover:bg-gray-100 hover:text-gray-900"
-      onClick={() => {
-        navigate(`/${gameId}`);
-      }}
     >
       <img
         src={src}
         alt={`${name} image`}
         className="w-full"
         style={{ width: "276.41px", height: "156px" }}
+        onClick={() => {
+          navigate(`/${gameId}`);
+        }}
       />
       <div className="flex flex-row p-2 justify-between items-center">
         <h2 className="text-sm uppercase">{setGameTitle(name)}</h2>

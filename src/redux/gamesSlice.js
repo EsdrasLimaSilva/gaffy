@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// const ltTg = JSON.parse(localStorage.getItem("ltTag"));
+
 export const gamesSlice = createSlice({
   name: "games",
   initialState: {
     loading: false,
     currentTag: null,
     currentOption: null,
-    lastTag: localStorage.ltTag || null,
+    lastTag: localStorage.getItem("ltTag") || null,
     gamesList: [],
   },
   reducers: {
