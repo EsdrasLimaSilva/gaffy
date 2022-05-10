@@ -41,7 +41,7 @@ function SingleGame({ name, src, genre, gameUrl, gameId }) {
         className="w-full"
         style={{ width: "276.41px", height: "156px" }}
         onClick={() => {
-          navigate(`/${gameId}`);
+          navigate(`/${gameId}`, { replace: true });
         }}
       />
       <div className="flex flex-row p-2 justify-between items-center">

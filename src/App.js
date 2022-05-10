@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 //pages
-import Home from "./container/Home";
-import GamePage from "./container/GamePage";
+const Home = React.lazy(() => import("./container/Home"));
+const GamePage = React.lazy(() => import("./container/GamePage"));
 
 function App() {
   return (

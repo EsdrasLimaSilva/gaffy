@@ -46,6 +46,30 @@ h4 {
   font-family: "Gugi", cursive;
 }
 
+table {
+  --tw-text-opacity: 1;
+  color: rgb(249 250 251 / var(--tw-text-opacity));
+  margin: 20px auto;
+}
+
+thead > tr {
+  width: 100%;
+  column-span: 3;
+}
+
+thead > tr > th {
+  column-span: 4;
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+td,
+th,
+tr {
+  border: 1px solid gray;
+  padding: 10px;
+}
+
 #header-home {
   background-image: url("./assets/background-header.jpg");
   background-size: contain;

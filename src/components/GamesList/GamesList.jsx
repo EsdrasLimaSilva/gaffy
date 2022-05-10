@@ -24,6 +24,7 @@ function GamesList() {
   useEffect(() => {
     (async function () {
       if (lastTag && games.length === 0) {
+        console.log("fetching");
         dispatch(loadingGames());
         const games = await fetchGames(formatQuery(lastTag));
         dispatch(gamesAdded(games));

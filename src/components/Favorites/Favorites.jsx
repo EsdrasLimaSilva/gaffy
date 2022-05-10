@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { selectGamesFav, gameRemovedFav } from "../../redux/favsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,15 +7,24 @@ import { faTrash, faHeartCrack } from "@fortawesome/free-solid-svg-icons";
 
 const FavGame = function ({ title, id, img }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <div
       id={id}
-      className="flex flex-row items-center justify-between bg-gray-900 hover:bg-gray-50 hover:text-gray-900 transition-all rounded-md hover:cursor-pointer my-1 shadow-lg"
+      className="flex flex-row items-center justify-between bg-gray-900 hover:bg-gray-50 hover:text-gray-900 transition-all rounded-md hover:cursor-pointer my-1 shadow-lg relative"
     >
-      <img src={img} alt={`${title} thumbnail`} className="h-12" />
-
-      <h2 className="ml-2 text-sm text-center">{title}</h2>
+      <div
+        className="flex flex-row items-center"
+        onClick={() => navigate(`/${id}`)}
+      >
+        <img
+          src={img}
+          alt={`${title} thumbnail`}
+          className="h-12 rounded-l-md"
+        />
+        <h2 className="ml-2 text-sm text-left">{title}</h2>
+      </div>
       <button onClick={() => dispatch(gameRemovedFav(id))}>
         <FontAwesomeIcon icon={faTrash} className="mx-2" />
       </button>
