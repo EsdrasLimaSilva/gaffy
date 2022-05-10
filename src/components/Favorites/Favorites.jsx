@@ -40,7 +40,7 @@ function Favorites() {
       id="favorites-section"
       className="hidden bg-gray-700 text-gray-50 fixed top-0 left-10 w-80 h-80 rounded-lg px-5 py-2 overflow-y-auto z-40 shadow-2xl"
     >
-      <h2 className="mb-5 border-b-2 pb-1">Games Favorites</h2>
+      <h2 className="mb-5 border-b-2 pb-1">Favorites</h2>
       <button
         className="absolute top-1 right-2 font-bold text-xl"
         onClick={() =>

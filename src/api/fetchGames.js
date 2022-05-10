@@ -17,7 +17,7 @@ export const fetchGames = async function (tag) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log(error.messahe);
+    throw new Error(error.message);
   }
 };
 
@@ -30,6 +30,6 @@ export const fetchSingleGame = async function (gameId) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log(error.message);
+    throw new Error(error.message);
   }
 };
