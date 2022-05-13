@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getItemFromLocalStorage } from "../helpers/localStorage";
+import {
+  getItemFromLocalStorage,
+  setItemLocalStorage,
+} from "../helpers/localStorage";
 
 const singleGameSlice = createSlice({
   name: "singleGame",
@@ -7,7 +10,7 @@ const singleGameSlice = createSlice({
   reducers: {
     dataAdded: (state, { payload }) => {
       state.data = payload;
-      localStorage.setItem("singleGT", payload);
+      setItemLocalStorage("singleGT", payload);
     },
   },
 });

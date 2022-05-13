@@ -5,3 +5,9 @@ export const getItemFromLocalStorage = function (key) {
     return null;
   }
 };
+
+export const setItemLocalStorage = function (key, content) {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, content);
+  }
+};

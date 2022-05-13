@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getItemFromLocalStorage } from "../helpers/localStorage";
+import {
+  getItemFromLocalStorage,
+  setItemLocalStorage,
+} from "../helpers/localStorage";
 
 export const gamesSlice = createSlice({
   name: "games",
@@ -25,7 +28,7 @@ export const gamesSlice = createSlice({
       state.currentOption = payload;
     },
     setLastTag: (state, { payload }) => {
-      localStorage.setItem("ltTag", String(payload));
+      setItemLocalStorage("ltTag", String(payload));
       state.lastTag = payload;
     },
   },
