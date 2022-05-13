@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getItemFromLocalStorage } from "../helpers/localStorage";
 
 export const favsSlice = createSlice({
   name: "favs",
   initialState: {
-    gamesFavs: JSON.parse(localStorage.getItem("gamesFavs")) || [],
+    gamesFavs: JSON.parse(getItemFromLocalStorage("gamesFavs")) || [],
   },
   reducers: {
     gameAddedFav: (state, { payload }) => {
