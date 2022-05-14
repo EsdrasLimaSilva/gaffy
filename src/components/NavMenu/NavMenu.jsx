@@ -4,7 +4,7 @@ import {
   faGenderless,
   faHandBackFist,
   faCubes,
-  faAnglesLeft,
+  faTag,
   faPeopleGroup,
   faUsersRays,
   faGun,
@@ -25,11 +25,33 @@ import {
   faJetFighter,
   faAtom,
   faGhost,
+  faBraille,
+  faEarthAmerica,
+  faBriefcaseMedical,
+  faBurst,
+  faDragon,
+  faGrip,
+  faHourglassHalf,
+  faBiohazard,
+  faPerson,
+  faJetFighterUp,
+  faWalkieTalkie,
+  faShuttleSpace,
+  faSailboat,
+  faCarSide,
+  faMask,
+  faSkull,
+  faWandSparkles,
+  faUserNinja,
+  faPlaneDeparture,
+  faDesktop,
+  faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCurrentTag, setCurrentTag } from "../../redux/gamesSlice";
 import ItemTag from "../ItemTag/ItemTag";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
 
 const NavMenu = function ({ closeMenu, showMenu }) {
   const currentTag = useSelector(selectCurrentTag);
@@ -66,7 +88,43 @@ const NavMenu = function ({ closeMenu, showMenu }) {
       { title: "sci-fi", icon: faAtom, id: 18 },
       { title: "horror", icon: faGhost, id: 19 },
     ],
+
+    tags: [
+      { title: "mmofps", icon: faEye, id: 20 },
+      { title: "sandbox", icon: faBraille, id: 21 },
+      { title: "open world", icon: faEarthAmerica, id: 22 },
+      { title: "survival", icon: faBriefcaseMedical, id: 23 },
+      { title: "action rpg", icon: faWandSparkles, id: 24 },
+      { title: "mmorts", icon: faHourglassHalf, id: 25 },
+      { title: "pixel", icon: faDragon, id: 26 },
+      { title: "voxel", icon: faGrip, id: 27 },
+      { title: "mmotps", icon: faVideo, id: 28 },
+      { title: "zombie", icon: faBiohazard, id: 29 },
+      { title: "first-person", icon: faPerson, id: 30 },
+      { title: "top-down", icon: faJetFighterUp, id: 31 },
+      { title: "tank", icon: faWalkieTalkie, id: 32 },
+      { title: "space", icon: faShuttleSpace, id: 33 },
+      { title: "sailing", icon: faSailboat, id: 34 },
+      { title: "side scroller", icon: faCarSide, id: 35 },
+      { title: "superhero", icon: faMask, id: 36 },
+      { title: "permadeath", icon: faSkull, id: 37 },
+      { title: "action", icon: faBurst, id: 38 },
+      { title: "martial arts", icon: faUserNinja, id: 39 },
+      { title: "flight", icon: faPlaneDeparture, id: 40 },
+      { title: "low-spec", icon: faDesktop, id: 41 },
+    ],
   };
+
+  if (currentTag && currentTag === "tag") {
+    return (
+      <ItemTag
+        tagArr={tags.tags}
+        color="slate"
+        closeMenu={closeMenu}
+        showMenu={showMenu}
+      />
+    );
+  }
 
   if (currentTag && currentTag === "genre") {
     return (
@@ -130,7 +188,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             <li
               data-testid="genre-menu-button"
               className="option-menu-tag scale-0 my-2 bg-red-700 text-gray-50 p-2 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-red-700 hover:cursor-pointer transition-all 
-            left-1/2 -translate-x-1/2"
+            left-1/2 -translate-x-1/2 top-20"
               onClick={() => dispatch(setCurrentTag("genre"))}
             >
               <span className="-rotate-45">
@@ -142,7 +200,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             <li
               data-testid="setting-menu-button"
               className="option-menu-tag scale-0 my-2 bg-blue-700 text-gray-50 p-1 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-blue-700 hover:cursor-pointer transition-all 
-            top-20 left-0"
+            top-0 left-0"
               onClick={() => dispatch(setCurrentTag("setting"))}
             >
               <span className="-rotate-45">
@@ -154,7 +212,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             <li
               data-testid="combat-menu-button"
               className="option-menu-tag scale-0 my-2 bg-green-700 text-gray-50 p-2 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-green-700 hover:cursor-pointer transition-all 
-            left-1/2 -translate-x-1/2 top-40"
+            left-0 top-40"
               onClick={() => dispatch(setCurrentTag("combat"))}
             >
               <span className="-rotate-45">
@@ -166,7 +224,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             <li
               data-testid="graphics-menu-button"
               className="option-menu-tag scale-0 my-2 bg-orange-700 text-gray-50 w-24 p-1 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-orange-700 hover:cursor-pointer transition-all 
-            top-20 right-0"
+            top-0 right-0"
               onClick={() => dispatch(setCurrentTag("graphics"))}
             >
               <span className="-rotate-45">
@@ -174,10 +232,21 @@ const NavMenu = function ({ closeMenu, showMenu }) {
                 Graphics
               </span>
             </li>
+
+            <li
+              className="option-menu-tag scale-0 my-2 bg-slate-700 text-gray-50 w-24 p-1 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-slate-700 hover:cursor-pointer transition-all 
+            top-40 right-0"
+              onClick={() => dispatch(setCurrentTag("tag"))}
+            >
+              <span className="-rotate-45">
+                <FontAwesomeIcon icon={faTag} />
+                Tag
+              </span>
+            </li>
           </ul>
           <button
             id="close-menu"
-            className="absolute top-0 right-0 text-white font-bold text-3xl"
+            className="absolute -top-5 -right-5 text-white font-bold text-4xl"
             onClick={closeMenu}
           >
             x
