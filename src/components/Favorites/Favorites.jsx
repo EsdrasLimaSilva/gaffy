@@ -4,6 +4,7 @@ import { selectGamesFav, gameRemovedFav } from "../../redux/favsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faHeartCrack } from "@fortawesome/free-solid-svg-icons";
+import { setItemLocalStorage } from "../../helpers/localStorage";
 
 const FavGame = function ({ title, id, img }) {
   const dispatch = useDispatch();
@@ -25,7 +26,12 @@ const FavGame = function ({ title, id, img }) {
         />
         <h2 className="ml-2 text-sm text-left">{title}</h2>
       </div>
-      <button onClick={() => dispatch(gameRemovedFav(id))}>
+      <button
+        onClick={() => {
+          dispatch(gameRemovedFav(id));
+          setItemLocalStorage(useSelector(selectGamesFav));
+        }}
+      >
         <FontAwesomeIcon icon={faTrash} className="mx-2" />
       </button>
     </div>
@@ -37,6 +43,7 @@ function Favorites() {
 
   return (
     <section
+      role="favorites-section"
       id="favorites-section"
       className="hidden bg-gray-700 text-gray-50 fixed top-0 left-10 w-80 h-80 rounded-lg px-5 py-2 overflow-y-auto z-40 shadow-2xl"
     >

@@ -11,30 +11,35 @@ import { fetchGames } from "../../api/fetchGames";
 import { formatQuery } from "../../helpers/formatQuery";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiceD20 } from "@fortawesome/free-solid-svg-icons";
+import { setItemLocalStorage } from "../../helpers/localStorage";
 
 function GamesList() {
   const dispatch = useDispatch();
   const games = useSelector(selectGames);
   const lastTag = useSelector(selectLastTag);
-
+  useSelector(selectLastTag);
   const [currentPage, setCurrentPage] = useState(1);
   const maxPage = Math.ceil(games.length / 10);
   const gamesListPage = games.slice(currentPage * 12 - 12, currentPage * 12);
 
   useEffect(() => {
-    (async function () {
+    async function getGamesData() {
       if (lastTag && games.length === 0) {
-        console.log("fetching");
         dispatch(loadingGames());
         const games = await fetchGames(formatQuery(lastTag));
         dispatch(gamesAdded(games));
       }
-    })();
+    }
+
+    getGamesData();
   }, []);
 
   if (games.length !== 0) {
     return (
-      <section className="mx-auto max-w-5xl flex flex-col items-center justify-center py-10 mt-16">
+      <section
+        role="games-list-section-fullfield"
+        className="mx-auto max-w-5xl flex flex-col items-center justify-center py-10 mt-16"
+      >
         <h2 className="text-gray-50 border-b-2 border-l-2 pr-5 border-purple-800 mb-16 p-2 rounded-md mr-auto ml-5">
           {lastTag}
         </h2>
@@ -83,7 +88,10 @@ function GamesList() {
   }
 
   return (
-    <h2 className="text-gray-50 text-center mt-48">
+    <h2
+      className="text-gray-50 text-center mt-48"
+      data-testid="initial-message"
+    >
       Try choosing a category from the menu <FontAwesomeIcon icon={faDiceD20} />
     </h2>
   );

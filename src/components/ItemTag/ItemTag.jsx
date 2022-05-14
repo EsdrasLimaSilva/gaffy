@@ -11,7 +11,7 @@ import {
   setCurrentTag,
   setLastTag,
 } from "../../redux/gamesSlice";
-import { useDispatch } from "react-redux";
+import { setItemLocalStorage } from "../../helpers/localStorage";
 
 function ItemTag({ tagArr, color, closeMenu, showMenu }) {
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ function ItemTag({ tagArr, color, closeMenu, showMenu }) {
         <ul className=" flex flex-row flex-wrap justify-center items-center">
           {tagArr.map((tag) => (
             <li
+              data-testid={`${tag.title}-item`}
               key={tag.id}
               className={`option-tag-type w-24 h-24 m-2 flex flex-col justify-center items-center rounded-lg hover:cursor-pointer bg-${color}-700 hover:bg-gray-50 hover:text-${color}-700`}
               onClick={async (e) => {
@@ -45,6 +46,7 @@ function ItemTag({ tagArr, color, closeMenu, showMenu }) {
                 const games = await fetchGames(formatQuery(query));
                 dispatch(gamesAdded(games));
                 dispatch(setLastTag(query));
+                setItemLocalStorage("ltTag", String(query));
               }}
             >
               <h2 className="text-center text-sm uppercase font-sans font-bold">

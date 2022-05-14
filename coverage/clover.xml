@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1652391018392" clover="3.2.0">
+  <project timestamp="1652391018392" name="All files">
+    <metrics statements="92" coveredstatements="31" conditionals="36" coveredconditionals="14" methods="42" coveredmethods="9" elements="170" coveredelements="54" complexity="0" loc="92" ncloc="92" packages="9" files="9" classes="9"/>
+    <package name="src">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="App.js" path="/home/limzz/gaffy/src/App.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Favorites">
+      <metrics statements="10" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="1"/>
+      <file name="Favorites.jsx" path="/home/limzz/gaffy/src/components/Favorites/Favorites.jsx">
+        <metrics statements="10" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.GamesList">
+      <metrics statements="20" coveredstatements="11" conditionals="10" coveredconditionals="3" methods="8" coveredmethods="3"/>
+      <file name="GamesList.jsx" path="/home/limzz/gaffy/src/components/GamesList/GamesList.jsx">
+        <metrics statements="20" coveredstatements="11" conditionals="10" coveredconditionals="3" methods="8" coveredmethods="3"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.HeaderHome">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="HeaderHome.jsx" path="/home/limzz/gaffy/src/components/HeaderHome/HeaderHome.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.ItemTag">
+      <metrics statements="19" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <file name="ItemTag.jsx" path="/home/limzz/gaffy/src/components/ItemTag/ItemTag.jsx">
+        <metrics statements="19" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.NavMenu">
+      <metrics statements="19" coveredstatements="9" conditionals="16" coveredconditionals="8" methods="6" coveredmethods="1"/>
+      <file name="NavMenu.jsx" path="/home/limzz/gaffy/src/components/NavMenu/NavMenu.jsx">
+        <metrics statements="19" coveredstatements="9" conditionals="16" coveredconditionals="8" methods="6" coveredmethods="1"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="71" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="81" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="92" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="103" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="146" count="0" type="stmt"/>
+        <line num="158" count="0" type="stmt"/>
+        <line num="170" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.footer">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Footer.jsx" path="/home/limzz/gaffy/src/components/footer/Footer.jsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.singleGame">
+      <metrics statements="13" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <file name="SingleGame.jsx" path="/home/limzz/gaffy/src/components/singleGame/SingleGame.jsx">
+        <metrics statements="13" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.redux">
+      <metrics statements="5" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="0"/>
+      <file name="singleGameSlice.js" path="/home/limzz/gaffy/src/redux/singleGameSlice.js">
+        <metrics statements="5" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

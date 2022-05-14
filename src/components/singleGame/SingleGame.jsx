@@ -9,6 +9,7 @@ import {
   gameAddedFav,
   gameRemovedFav,
 } from "../../redux/favsSlice";
+import { setItemLocalStorage } from "../../helpers/localStorage";
 
 function SingleGame({ name, src, genre, gameUrl, gameId }) {
   const dispatch = useDispatch();
@@ -21,18 +22,21 @@ function SingleGame({ name, src, genre, gameUrl, gameId }) {
 
     if (gameIsOnFavs) {
       dispatch(gameRemovedFav(Number(gameIdFavs)));
+      setItemLocalStorage("gamesFavs", JSON.stringify(gamesFav));
     }
 
     if (!gameIsOnFavs) {
       dispatch(
         gameAddedFav({ title: gameTitleFavs, img: gameImgFavs, id: gameIdFavs })
       );
+      setItemLocalStorage("gamesFavs", JSON.stringify(gamesFav));
     }
   }
 
   return (
     <div
       id={gameId}
+      data-testid="single-game"
       className="single-game transition-all text-gray-50 m-2 bg-gray-900 pb-4 shadow-lg relative hover:cursor-pointer hover:bg-gray-100 hover:text-gray-900"
     >
       <img

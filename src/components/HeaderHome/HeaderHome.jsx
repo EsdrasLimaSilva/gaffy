@@ -11,13 +11,14 @@ function HeaderHome({ showMenu }) {
       id="header-home"
       className="bg-slate-900 text-gray-50 w-full h-32 shadow-md relative"
     >
-      <button onClick={showMenu}>
+      <button data-testid="button-show-menu" onClick={showMenu}>
         <svg className="absolute top-2 left-2 hover:cursor-pointer w-6 h-6">
           <use href={`${menuButton}#menu-btn`} />
         </svg>
       </button>
       <button
         id="games-fvs-section-button"
+        data-testid="games-fvs-section-button"
         className="text-gray-200 text-2xl absolute top-1 left-10"
         onClick={() =>
           document

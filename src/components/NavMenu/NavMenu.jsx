@@ -114,7 +114,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
     <>
       <div
         id="cover-close-menu"
-        className="w-screen h-screen absolute top-0 left-0 z-10 hidden"
+        className="hidden w-screen h-screen absolute top-0 left-0 z-10"
         onClick={() => {
           closeMenu();
           setCurrentTag(null);
@@ -122,11 +122,13 @@ const NavMenu = function ({ closeMenu, showMenu }) {
       />
       <div
         id="menu"
+        data-testid="menu"
         className="hidden transition-all duration-700 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-64 h-64"
       >
         <nav className="relative w-full h-full text-sm">
           <ul>
             <li
+              data-testid="genre-menu-button"
               className="option-menu-tag scale-0 my-2 bg-red-700 text-gray-50 p-2 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-red-700 hover:cursor-pointer transition-all 
             left-1/2 -translate-x-1/2"
               onClick={() => dispatch(setCurrentTag("genre"))}
@@ -138,6 +140,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             </li>
 
             <li
+              data-testid="setting-menu-button"
               className="option-menu-tag scale-0 my-2 bg-blue-700 text-gray-50 p-1 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-blue-700 hover:cursor-pointer transition-all 
             top-20 left-0"
               onClick={() => dispatch(setCurrentTag("setting"))}
@@ -149,6 +152,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             </li>
 
             <li
+              data-testid="combat-menu-button"
               className="option-menu-tag scale-0 my-2 bg-green-700 text-gray-50 p-2 w-24 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-green-700 hover:cursor-pointer transition-all 
             left-1/2 -translate-x-1/2 top-40"
               onClick={() => dispatch(setCurrentTag("combat"))}
@@ -160,6 +164,7 @@ const NavMenu = function ({ closeMenu, showMenu }) {
             </li>
 
             <li
+              data-testid="graphics-menu-button"
               className="option-menu-tag scale-0 my-2 bg-orange-700 text-gray-50 w-24 p-1 h-24 flex items-center justify-center rotate-45 absolute rounded-md hover:bg-gray-50 hover:text-orange-700 hover:cursor-pointer transition-all 
             top-20 right-0"
               onClick={() => dispatch(setCurrentTag("graphics"))}
