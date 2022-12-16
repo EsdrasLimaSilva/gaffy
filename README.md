@@ -16,3 +16,8 @@ link do protótipo: https://gaffy.netlify.app/
 - Encontrar jogos grátis com base em uma categoria
 - Conseguir informações de lançamento, hardware recomendado e etc de um determinado jogo
 - Salvar os jogos favoritos 
+
+## tecnologias 
+
+- React
+- Tailwindcss
