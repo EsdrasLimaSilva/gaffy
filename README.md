@@ -21,3 +21,4 @@ link do protótipo: https://gaffy.netlify.app/
 
 - React
 - Tailwindcss
+- Redux
