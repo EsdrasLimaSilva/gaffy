@@ -1,9 +1,18 @@
 # gaffy
 
-Dados providos por http://freetogame.com/ (API).
+## objetivo
+
+O objetivo do projeto é possibilitar que pessoas consigam encontrar jogos grátis para jogar. A partir de uma categoria, é possível encontrar várias informações a respeito dos jogos relacionados.
+
+## api
+
+A api utilizada para a busca dos games foi a freetogame api.
+
+## site no ar
 link do protótipo: https://gaffy.netlify.app/
 
-O funcionamento do projeto é bastante simples. Ele é praticamente um clone das funcionalidades principais do site http://freetogame.com/. Nele é possível
-selecionar marcadores(tags) específicas para encontrar jogos relacionados (todos gratuitos).
+## funcionalidades
 
-Também é possível visitar a página original do game e adicioná-lo aos jogos favoritos(apenas demonstrativo).
+- Encontrar jogos grátis com base em uma categoria
+- Conseguir informações de lançamento, hardware recomendado e etc de um determinado jogo
+- Salvar os jogos favoritos 
